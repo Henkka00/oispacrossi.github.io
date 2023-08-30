@@ -13,11 +13,20 @@ function HTMLActuator() {
 
 }
 
+function randomInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 dogeSayings = [
 'KTM <3',
 'Oisko FMF?',
 'Onko big bore?',
 'Ois Enox',
+'Iha uus mäntä',
+'Liian pitkät välit',
+'Supercrossi?',
+'Nelari?',
+'2-Tahti VOIMAA!!',
 ]
 
 HTMLActuator.prototype.actuate = function (grid, metadata) {
@@ -139,7 +148,7 @@ HTMLActuator.prototype.updateScore = function (score) {
 
   if (difference > 0) {
 
-    snd = new Audio("./snd/pen/pencil_scribble" + Math.floor(Math.random() * 3).toString() + ".ogg")
+    snd = new Audio("./snd/yhdistäminen/ääni" + randomInteger(1,3).toString() + ".ogg")
 
     var addition = document.createElement("div");
     addition.classList.add("score-addition");
@@ -161,7 +170,7 @@ HTMLActuator.prototype.updateScore = function (score) {
   }
   else
   {
-    snd = new Audio("./snd/paper/page_turning" + Math.floor(Math.random() * 3).toString() + ".ogg");
+    snd = new Audio("./snd/liikuttaminen/ääni" + randomInteger(1,2).toString() + ".ogg");
   }
 
   snd.play();
